@@ -11,10 +11,6 @@ def home():
 
 @app.route('/reservations.html', methods=['GET', 'POST'])
 def reservations():
-    # name = ''
-    # arriving = ''
-    # departing = ''
-    # cmd = ''
     if request.method == 'POST':
         name = request.form["name"]
         arriving = request.form["arriving"]
@@ -26,7 +22,7 @@ def reservations():
             cur = conn.cursor()
             cur.execute(cmd)
             conn.commit()
-            msg = "Complete"
+
         return redirect(url_for('confirmation', name=name, arriving=arriving, departing=departing))
     else:
         return render_template('reservations.html')
