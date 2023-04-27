@@ -3,7 +3,7 @@ conn = sqlite3.connect("database.db")
 
 print("Connected")
 
-cmd = "CREATE TABLE reserved (name TEXT, arriving TEXT, departing TEXT)"
+cmd = "CREATE TABLE reserved (name TEXT, arriving DATE, departing DATE)"
 
 conn.execute(cmd)
 

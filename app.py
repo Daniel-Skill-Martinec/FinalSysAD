@@ -3,8 +3,6 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 
-
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -16,9 +14,9 @@ def reservations():
         arriving = request.form["arriving"]
         departing = request.form["departing"]
 
-        cmd = "INSERT INTO reserved (name, arrival, departure) VALUES ('{0}', '{1}', '{2}')".format(name, arriving, departing)
+        cmd = "INSERT INTO reserved (name, arriving, departing) VALUES ('{0}', '{1}', '{2}')".format(name, arriving, departing)
 
-        with sql.connect("databse.db") as conn:
+        with sql.connect("database.db") as conn:
             cur = conn.cursor()
             cur.execute(cmd)
             conn.commit()
@@ -32,7 +30,6 @@ def confirmation():
     name = request.args.get('name')
     arriving = request.args.get('arriving')
     departing = request.args.get('departing')
-
 
     return render_template('confirmation.html', name=name, arriving=arriving, departing=departing)
 

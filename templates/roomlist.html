@@ -6,6 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room List</title>
 </head>
+<style>
+  th {
+        background-color: #0077c2;
+        color: #FDB813;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 20px;
+   }
+  td {
+    background-color: lightgray;
+    padding-bottom: 10px;
+  }
+  button {
+        background-color: #0077c2;
+        color: #FDB813;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 20px;
+  }
+  button:hover {
+        background-color: #005ea4;
+        cursor: pointer;
+  }
+  body {
+    background-color:darkgrey;
+  }
+</style>
 <body>
     <center>
     <h1>Room List</h1>
@@ -21,13 +54,13 @@
         {% for row in rows %}
         <tr>
           <td>{{row["name"]}}</td>
-          <td>{{["arriving"]}}</td>
-          <td>{{["departing"]}}</td>
+          <td>{{row["arriving"]}}</td>
+          <td>{{row["departing"]}}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    <button onclick="location.href='home.html'">Go Home</button>
+    <button onclick="location.href='http://localhost:5000/'">Go Home</button>
     </center>
 </body>
 </html>
